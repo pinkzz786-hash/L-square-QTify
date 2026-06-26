@@ -1,11 +1,10 @@
 .carouselWrapper {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .customNav {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -13,20 +12,25 @@
   background: #34c94b;
   color: white;
   cursor: pointer;
-  z-index: 100;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  z-index: 10;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #34c94b !important;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.customNav svg {
-  pointer-events: none;
-}
-
-.prev {
-  left: -18px;
-}
-
-.next {
-  right: -18px;
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px !important;
+  font-weight: bold;
 }
