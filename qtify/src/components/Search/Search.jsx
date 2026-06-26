@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Search.module.css";
 import { ReactComponent as SearchIcon } from "../../assets/search-icon.svg";
-import { useAutocomplete } from "@mui/base/useAutocomplete";
+import {useAutocomplete} from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
 import { truncate } from "../../helpers/helpers";
 // import { useNavigate } from "react-router-dom";
@@ -36,18 +36,19 @@ const Listbox = styled("ul")(({ theme }) => ({
 }));
 
 function Search({ searchData, placeholder }) {
-  const {
+const {
   getRootProps,
+  getInputLabelProps,
   value,
   getInputProps,
   getListboxProps,
   getOptionProps,
   groupedOptions,
 } = useAutocomplete({
-    id: "use-autocomplete-demo",
-    options: searchData || [],
-    getOptionLabel: (option) => option?.title || "",
-  });
+  id: "use-autocomplete-demo",
+  options: searchData || [],
+  getOptionLabel: (option) => option?.title || "",
+});
 
   // const navigate = useNavigate();
  const onSubmit = (e) => {

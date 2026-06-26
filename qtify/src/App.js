@@ -10,21 +10,29 @@ function App() {
   const [topAlbums, setTopAlbums] = useState([]);
   const [searchData, setSearchData] = useState([]);
 
-  const fetchTopAlbums = async () => {
+ const fetchTopAlbums = async () => {
+  try {
     const response = await axios.get(
       "https://qtify-backend.labs.crio.do/albums/top"
     );
-
+    console.log("Top Albums:", response.data);
     setTopAlbums(response.data);
-  };
+  } catch (err) {
+    console.log("Top Albums Error:", err);
+  }
+};
 
-  const fetchSearchData = async () => {
+const fetchSearchData = async () => {
+  try {
     const response = await axios.get(
       "https://qtify-backend.labs.crio.do/albums"
     );
-
+    console.log("Search Data:", response.data);
     setSearchData(response.data);
-  };
+  } catch (err) {
+    console.log("Search Error:", err);
+  }
+};
 
   useEffect(() => {
     fetchTopAlbums();
