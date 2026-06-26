@@ -1,0 +1,13 @@
+.card{
+    width:160px;
+    border-radius:10px;
+}
+
+.content{
+    background:#fff;
+    padding:8px;
+}
+
+.chip{
+    margin-bottom:8px;
+}
