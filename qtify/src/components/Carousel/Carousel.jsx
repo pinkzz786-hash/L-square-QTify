@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -8,10 +8,9 @@ function Carousel({ data = [], renderComponent }) {
   return (
     <Swiper
       modules={[Navigation]}
-      navigation
-      watchOverflow={false}
+      navigation={true}
       spaceBetween={20}
-      slidesPerView={5}
+      slidesPerView={7}
       slidesPerGroup={1}
       breakpoints={{
         320: {
@@ -24,10 +23,10 @@ function Carousel({ data = [], renderComponent }) {
           slidesPerView: 4,
         },
         1024: {
-          slidesPerView: 5,
+          slidesPerView: 6,
         },
         1440: {
-          slidesPerView: 5,
+          slidesPerView: 7,
         },
       }}
     >
