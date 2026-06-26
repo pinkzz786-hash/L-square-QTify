@@ -9,9 +9,9 @@ function Carousel({ data = [], renderComponent }) {
     <Swiper
       modules={[Navigation]}
       navigation
-      rewind={true}
+      watchOverflow={false}
       spaceBetween={20}
-      slidesPerView={7}
+      slidesPerView={5}
       slidesPerGroup={1}
       breakpoints={{
         320: {
