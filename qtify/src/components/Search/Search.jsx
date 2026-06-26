@@ -51,12 +51,13 @@ function Search({ searchData, placeholder }) {
   });
 
   const navigate = useNavigate();
-  const onSubmit = (e, value) => {
-    e.preventDefault();
-    console.log(value);
-    navigate(`/album/${value.slug}`);
-    //Process form data, call API, set state etc.
-  };
+ const onSubmit = (e, value) => {
+  e.preventDefault();
+
+  if (!value) return;
+
+  navigate(`/album/${value.slug}`);
+};
 
   return (
     <div style={{ position: "relative" }}>
@@ -83,28 +84,28 @@ function Search({ searchData, placeholder }) {
       </form>
       {groupedOptions.length > 0 ? (
         <Listbox {...getListboxProps()}>
-          {groupedOptions.map((option, index) => {
-            // console.log(option);
-            const artists = option.songs.reduce((accumulator, currentValue) => {
-              accumulator.push(...currentValue.artists);
-              return accumulator;
-            }, []);
+       {groupedOptions.map((option, index) => {
+  const artists = option.songs.reduce((accumulator, currentValue) => {
+    accumulator.push(...currentValue.artists);
+    return accumulator;
+  }, []);
 
-            return (
-              <li
-                className={styles.listElement}
-                {...getOptionProps({ option, index })}
-              >
-                <div>
-                  <p className={styles.albumTitle}>{option.title}</p>
+  return (
+    <li
+      key={option.id || option.slug || index}
+      className={styles.listElement}
+      {...getOptionProps({ option, index })}
+    >
+      <div>
+        <p className={styles.albumTitle}>{option.title}</p>
 
-                  <p className={styles.albumArtists}>
-                    {truncate(artists.join(", "), 40)}
-                  </p>
-                </div>
-              </li>
-            );
-          })}
+        <p className={styles.albumArtists}>
+          {truncate(artists.join(", "), 40)}
+        </p>
+      </div>
+    </li>
+  );
+})}
         </Listbox>
       ) : null}
     </div>

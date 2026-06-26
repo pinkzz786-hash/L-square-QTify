@@ -1,17 +1,13 @@
-import Logo from "./components/Logo/Logo";
-import './App.css';
-import Hero from './components/Hero/Hero';
-import Navbar from './components/Navbar/Navbar';
-
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar/>
-        <Logo/>
-        <Hero/>
-        
+        <Navbar />
+        <Hero />
       </header>
     </div>
   );
