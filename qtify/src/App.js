@@ -1,13 +1,17 @@
-import Logo from './Components/Logo/Logo.jsx';
+import Logo from "./components/Logo/Logo";
 import './App.css';
-import Navbar from './Components/Navbar/Navbar.jsx';
+import Hero from './components/Hero/Hero';
+import Navbar from './components/Navbar/Navbar';
+
+
 function App() {
   return (
     <div className="App">
-      
       <header className="App-header">
-      <Logo />
-      <Navbar />
+        <Navbar/>
+        <Logo/>
+        <Hero/>
+        
       </header>
     </div>
   );
