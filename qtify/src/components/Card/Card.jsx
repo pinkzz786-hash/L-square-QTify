@@ -1,7 +1,12 @@
-import { Card, CardContent, CardMedia, Chip, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Chip } from "@mui/material";
 import styles from "./Card.module.css";
 
-function AlbumCard({ image, follows, title }) {
+function AlbumCard({
+  image,
+  follows,
+  title,
+  chipLabel = "Follows",
+}) {
   return (
     <Card className={styles.card}>
       <CardMedia
@@ -13,14 +18,12 @@ function AlbumCard({ image, follows, title }) {
 
       <CardContent className={styles.content}>
         <Chip
-          label={`${follows} Follows`}
+          label={`${follows} ${chipLabel}`}
           size="small"
           className={styles.chip}
         />
 
-        <Typography variant="body2">
-          {title}
-        </Typography>
+        <p>{title}</p>
       </CardContent>
     </Card>
   );

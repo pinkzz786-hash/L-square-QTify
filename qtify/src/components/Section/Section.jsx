@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./Section.module.css";
+import Carousel from "../Carousel/Carousel";
 
-
-function Section({ title, children }) {
+function Section({ title, data = [], renderComponent }) {
   const [showAll, setShowAll] = useState(false);
 
   return (
@@ -18,11 +18,16 @@ function Section({ title, children }) {
         </button>
       </div>
 
-      <div className={styles.cards}>
-        {showAll
-          ? children
-          : React.Children.toArray(children).slice(0, 7)}
-      </div>
+      {showAll ? (
+        <div className={styles.cards}>
+          {data.map((item) => renderComponent(item))}
+        </div>
+      ) : (
+        <Carousel
+          data={data}
+          renderComponent={renderComponent}
+        />
+      )}
     </div>
   );
 }
